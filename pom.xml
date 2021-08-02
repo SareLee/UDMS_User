@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>user</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>user</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -78,6 +78,25 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+        		<groupId>com.spotify</groupId>
+             	<artifactId>dockerfile-maven-plugin</artifactId>
+	             <version>1.4.3</version>
+	             <executions>
+	                 <execution>
+	                     <id>default</id>
+	                     <goals>
+	                         <goal>build</goal>
+	                         <goal>push</goal>
+	                     </goals>
+	                 </execution>
+	             </executions>
+	             <configuration>
+	             	 <repository>SareLee/UDMS_User</repository>
+	                 <tag>${project.version}</tag>
+	                 <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+	             </configuration>
+         </plugin>
 		</plugins>
 	</build>
 
